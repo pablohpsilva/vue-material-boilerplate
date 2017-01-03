@@ -50,6 +50,7 @@
 </template>
 
 <script type="text/babel">
+  import { extractRequestData } from '../../common/functions/helpers';
   import { gitResource } from '../../common/resources/resources';
 
   export default {
@@ -67,7 +68,7 @@
       fetchGithubData() {
         this.githubResources.list()
           .then((docs) => {
-            this.items = docs.data;
+            this.items = extractRequestData(docs);
           });
       },
     },
