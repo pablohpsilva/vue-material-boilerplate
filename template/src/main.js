@@ -18,7 +18,7 @@ Vue.use(VueRouter){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueResource){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const store = new Vuex.Store(VuexStore),
-  router = new Router(RouterConfig){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  router = new VueRouter(RouterConfig){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 sync(store, router){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
