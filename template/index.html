@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keywords" content="palavras,chaves,separadas,por,vírgula,sem,espaço">
+    <meta name="author" content="best site"/>
+    <meta name="description" content="A page's description, usually one or two sentences."/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Social Media Meta Card Tags -->
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="The best site">
+    <meta property="og:url" content="https://bestsite.com">
+    <meta property="og:title" content="The best site"/>
+    <meta property="og:description" content="description goes here"/>
+    <!-- Multiplas imagens com multiplas resoluções/tipos podem ser usadas -->
+    <meta property="og:image" content="https://bestsite.com/logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <!-- Twitter cards -->
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:site" content="bestsite"/>
+    <meta property="twitter:site:id" content="7812312"/>
+    <meta property="twitter:title" content="The best site"/>
+    <meta property="twitter:description" content="description goes here"/>
+    <meta property="twitter:image" content="link_to_image"/>
+    <meta property="twitter:image:src" content="https://bestsite.com/logo.png">
+    <meta property="twitter:image:width" content="1200">
+    <meta property="twitter:image:height" content="1200">
+    <!-- Google+ -->
+    <meta itemprop="name" content="The best site">
+    <meta itemprop="description" content="description goes here">
+    <meta itemprop="image" content="https://bestsite.com/logo.png">
+    <!-- Tags que não são meta -->
     <title>{{ name }}</title>
+    <!-- CSS -->
+    <!-- Arquivos de Reset do CSS devem ser chamados antes de qualquer outro arquivo -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- <link rel="stylesheet" type="text/css" href="/css/reset.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/css/bundle.css"> -->
+    <!-- Scripts de analytics podem ser colocados no head, sendo eles minified e uglyfied -->
+    <!-- <script async src="//www.google-analytics.com/analytics.min.js"></script> -->
   </head>
   <body>
+
+    <!-- Conteúdo do Body -->
+    <!-- De preferência, apenas uma tag contendo a raíz da aplicação deverá ser chamada -->
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+    <!-- JavaScript -->
+    <!-- Coloca-se o bundle.js abaixo para que a página seja carregada independente do JavaScript -->
+    <!-- Podem existir cenários onde o bundle.js deva ser importado na tag head. -->
+    <!-- <script async charset="utf-8" src="/js/bundle.js"></script> -->
   </body>
 </html>
