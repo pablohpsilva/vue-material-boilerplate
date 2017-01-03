@@ -12,17 +12,17 @@ module.exports = {
     "name": {
       "type": "string",
       "required": true,
-      "message": "Project name"
+      "message": "Nome do projeto"
     },
     "description": {
       "type": "string",
       "required": false,
-      "message": "Project description",
-      "default": "A Vue.js project"
+      "message": "Descrição",
+      "default": "Um projeto em Vue.js"
     },
     "author": {
       "type": "string",
-      "message": "Author"
+      "message": "Autor(es)"
     },
     "build": {
       "type": "list",
