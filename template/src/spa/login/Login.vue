@@ -53,7 +53,7 @@
     },
     methods: {
       login() {
-        this.$router.push({ path: '/' });
+        this.$router.push({ path: '/products' });
       },
     },
   };
