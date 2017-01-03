@@ -5,9 +5,9 @@
         Exemplo de chamada ajax:
         <ul v-if="items">
           <li v-for="item in items">
-            <span class="message">{{item.commit.message}}</span><br>
-            by <span class="author">{{item.commit.author.name}}</span>
-            at <span class="date">{{item.commit.author.date}}</span>
+            <span class="message">@{{ item.commit.message }}</span><br>
+            by <span class="author">@{{ item.commit.author.name }}</span>
+            at <span class="date">@{{ item.commit.author.date }}</span>
           </li>
         </ul>
       </div>
