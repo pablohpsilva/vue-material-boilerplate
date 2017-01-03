@@ -48,7 +48,7 @@
       },
       emailError() {
         // Exemplo de computed properties
-        return (this.errors) ? this.errors.first('cnpj') : '';
+        return (this.errors) ? this.errors.first('email') : '';
       },
     },
     methods: {
