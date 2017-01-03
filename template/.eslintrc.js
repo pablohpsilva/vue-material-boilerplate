@@ -40,6 +40,8 @@ module.exports = {
       'vue': 'never'
     }],
     {{/if_eq}}
+    'one-var': 0,
+    'no-param-reassign': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
