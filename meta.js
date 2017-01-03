@@ -40,12 +40,7 @@ module.exports = {
         }
       ]
     },
-    "lint": {
-      "type": "confirm",
-      "message": "Confirmar o uso de ESLint no projeto."
-    },
     "lintConfig": {
-      "when": "lint",
       "type": "list",
       "message": "Pick an ESLint preset",
       "choices": [
