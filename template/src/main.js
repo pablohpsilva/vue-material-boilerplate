@@ -22,6 +22,7 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueMaterial){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueRouter){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(VeeValidate){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueResource){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // Exemplo de como usar uma diretiva em Vue
