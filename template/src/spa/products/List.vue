@@ -42,7 +42,6 @@
             sint. Excepturi.
           </p>
           <span>Exemplo de mascara e diretiva em vue</span>
-          <input type="text" v-phone>
         </md-card-content>
       </md-card>
     </div>
