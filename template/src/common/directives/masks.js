@@ -1,48 +1,60 @@
-import Cleave from 'cleave.js';
-
-const hour = {
-  date: true,
-  datePattern: ['h', 'mm'],
-  delimiter: ':',
-};
-
-const date = {
-  date: true,
-  datePattern: ['m', 'd', 'Y'],
-};
-
-const phone = {
-  phone: true,
-  phoneRegionCode: 'BR',
-};
-
-const money = {
-// numeral: true,
-  delimiters: [',', ',', '.'],
-  blocks: [3, 3, 2],
-};
+import vanillaMasker from 'vanilla-masker';
 
 /* eslint-disable no-new */
+export const vHourFull = {
+  bind(el) {
+    vanillaMasker(el).maskPattern('99:99:99');
+  },
+};
+
 export const vHour = {
-  bind() {
-    new Cleave(this.el, hour);
+  bind(el) {
+    vanillaMasker(el).maskPattern('99:99');
+  },
+};
+
+export const vDateFull = {
+  bind(el) {
+    vanillaMasker(el).maskPattern('99/99/9999');
   },
 };
 
 export const vDate = {
   bind(el) {
-    new Cleave(el, date);
+    vanillaMasker(el).maskPattern('99/99/99');
   },
 };
 
 export const vPhone = {
-  bind(el) {
-    new Cleave(el, phone);
+  bind(el, binding) {
+    const pattern = (binding.value) ? binding.value.mask : '(99) 99999-9999';
+    vanillaMasker(el).maskPattern(pattern);
   },
 };
 
 export const vMoney = {
-  bind(el) {
-    new Cleave(el, money);
+  bind(el, binding) {
+    const params = binding.value || {};
+
+    vanillaMasker(el).maskMoney({
+      // Decimal precision -> "90"
+      precision: params.precision || 2,
+
+      // Decimal separator -> ",90"
+      separator: params.separator || ',',
+
+      // Number delimiter -> "12.345.678"
+      delimiter: params.delimiter || '.',
+
+      // Money unit -> "R$ 12.345.678,90"
+      unit: params.unit || 'R$',
+
+      // Money unit -> "12.345.678,90 R$"
+      suffixUnit: params.suffixUnit || '',
+      // Force type only number instead decimal,
+      // masking decimals with ",00"
+      // Zero cents -> "R$ 1.234.567.890,00"
+      zeroCents: !!params.zeroCents,
+    });
   },
 };

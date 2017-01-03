@@ -13,10 +13,13 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento do F
 * [Guia para CSS](#guia-para-css)
 * [Guia para JavaScript](#guia-para-javascript)
 * [Node.js e Gerenciador de pacotes](#nodejs-e-gerenciador-de-pacotes)
-  * [Node.js](#nodejs-e-gerenciador-de-pacotes-versao-nodejs)
-  * [Gerenciador de pacotes](#nodejs-e-gerenciador-de-pacotes-versao-gerenciador)
-  * [Como instalar o yarn](#lista-de-plugins-instalar-yarn)
-  * [Algumas das vantagens em usar o yarn](#lista-de-plugins-vantagens-yarn)
+  * [Node.js](#nodejs)
+  * [Gerenciador de pacotes](#gerenciador-de-pacotes)
+  * [Como instalar o yarn](#como-instalar-o-yarn)
+  * [Algumas das vantagens em usar o yarn](#vantagens-em-usar-o-yarn)
+* [Seed](#seed)
+  * [Arquitetura](#arquitetura)
+  * [Vue.js](#vuejs)
 
 ---
 
@@ -201,21 +204,82 @@ config/*.js
 
 # <a id="nodejs-e-gerenciador-de-pacotes"></a>Node.js e Gerenciador de pacotes
 
-## <a id="nodejs-e-gerenciador-de-pacotes-versao-nodejs"></a>Node.js
+## <a id="nodejs"></a>Node.js
 Recomenda-se sempre o uso da versão LTS/recomendada pela Node.js foundation. Hoje, `30/12/2016`, a versão recomendada é a 6.9.2.
 
-## <a id="nodejs-e-gerenciador-de-pacotes-versao-gerenciador"></a>Gerenciador de pacotes
+## <a id="gerenciador-de-pacotes"></a>Gerenciador de pacotes
 Qualquer gerenciador de pacotes poderá ser usado, porém, recomenda-se o **[yarn](https://www.npmjs.com/package/yarn)** como padrão onde espera-se que este seja instalado globalmente na máquina/container de desenvolvimento.
 
 Para instalar o yarn, basta:
-<a id="lista-de-plugins-instalar-yarn"></a>
+<a id="como-instalar-o-yarn"></a>
 ```bash
 $ npm install -g yarn
 ```
 
-#### <a id="lista-de-plugins-vantagens-yarn"></a>Algumas das vantagens em usar o yarn:
+#### <a id="vantagens-em-usar-o-yarn"></a>Algumas das vantagens em usar o yarn:
 * **Offline Mode**. If you've installed a package before, you can install it again without any internet connection.
 * **Deterministic**. The same dependencies will be installed in the same exact way on any machine, regardless of install order.
 * **Network Performance**. Yarn efficiently queues up requests and avoids request waterfalls in order to maximize network utilization.
 * **Network Resilience**. A single request failing won't cause an install to fail. Requests are retried upon failure.
 * **Flat Mode**. Yarn resolves mismatched versions of dependencies to a single version to avoid creating duplicates.
+
+---
+
+# <a id="seed"></a>Seed
+
+## <a id="arquitetura"></a>Arquitetura
+
+```bash
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   └── logo.png
+│   ├── common
+│   │   ├── directives
+│   │   │   └── masks.js
+│   │   ├── functions
+│   │   │   └── helpers.js
+│   │   ├── resources
+│   │   │   └── resources.js
+│   │   └── validations
+│   │       ├── email.js
+│   │       └── social.js
+│   ├── spa
+│   │   ├── Hello.vue
+│   │   └── Home.vue
+│   └── vuex
+│   │   ├── actions.js
+│   │   ├── getters.js
+│   │   ├── modules
+│   │   │   └── example.js
+│   │   ├── mutation-types.js
+│   │   └── store.js
+│   ├── main.js
+│   └── router-config.js
+├── index.html
+└── package.json
+```
+
+Com essa arquitetura, temos:
+
+* **common**. Diretório onde arquivos que são compartilhados por toda aplicação;
+* **common/directives**. Diretivas Vue que podem ser usadas na aplicação;
+* **common/functions**. Funções usadas na aplicação;
+* **common/resources**. Resources para consumo de API Rest;
+* **common/validations**. Validações customizadas que atendam às necessidades da aplicação;
+* **shared-components**. Onde todos os componentes que são frequentemente usados na aplicação deverão ser criados e colocados aqui;
+* **spa**. Onde cada uma das páginas da SPA serão criadas;
+* **vuex**. Todos os arquivos necessários para que o vuex funcione. Contempla actions, mutations, getters e a store;
+* **vuex/modules**. Módulos do vuex que serão usados na aplicação.
+* **`router-config.js`**. Arquivo que configura um objeto VueRouter para ser usada na aplicação. Todas as rotas encontram-se aqui. Este arquivo é o arquivo raíz de rotas, sendo assim, arquivos externos poderão ser importados e usados aqui;
+* **`App.vue`**. Componente raíz da aplicação já com vue-router inciado, assim como, com transição `slide-fade` adicionada;
+* **`main.js`**. Arquivo de confguração raíz da aplicação. Onde tudo inicia.
+
+## <a id="vuejs"></a>Vue.js
+Este seed usa as seguinte principais tecnologias:
+
+1. [Vue.js](https://github.com/vuejs/vue/releases/tag/v2.1.8);
+* [vuex](https://github.com/vuejs/vuex/releases/tag/v2.1.1);
+* [vue-resource](https://github.com/pagekit/vue-resource/releases/tag/1.0.3);
+* [vue-router](https://github.com/vuejs/vue-router/releases/tag/v2.1.1);
+* [vee-validate](https://github.com/logaretm/vee-validate/releases/tag/2.0.0-beta.18).

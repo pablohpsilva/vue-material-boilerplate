@@ -29,12 +29,12 @@ module.exports = {
       "message": "Vue build",
       "choices": [
         {
-          "name": "Runtime + Compiler: recommended for most users",
+          "name": "Runtime + Compiler: esta é a recomendada",
           "value": "standalone",
           "short": "standalone"
         },
         {
-          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
+          "name": "Runtime-only: 6KB mais leve min+gzip, porém templates (ou qualquer Vue-specific HTML) é permitido SOMENTE em arquivos .vue - funções de renderização são requiridas em outro lugar",
           "value": "runtime",
           "short": "runtime"
         }
@@ -42,7 +42,7 @@ module.exports = {
     },
     "lint": {
       "type": "confirm",
-      "message": "Use ESLint to lint your code?"
+      "message": "Confirmar o uso de ESLint no projeto."
     },
     "lintConfig": {
       "when": "lint",
@@ -50,19 +50,9 @@ module.exports = {
       "message": "Pick an ESLint preset",
       "choices": [
         {
-          "name": "Standard (https://github.com/feross/standard)",
-          "value": "standard",
-          "short": "Standard"
-        },
-        {
-          "name": "AirBNB (https://github.com/airbnb/javascript)",
+          "name": "AirBNB (https://github.com/airbnb/javascript) + Softbox lint",
           "value": "airbnb",
           "short": "AirBNB"
-        },
-        {
-          "name": "none (configure it yourself)",
-          "value": "none",
-          "short": "none"
         }
       ]
     },
@@ -82,5 +72,5 @@ module.exports = {
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
-  "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
+  "completeMessage": "Para rodar o projeto:\n\n  cd {{destDirName}}\n  yarn install\n  yarn run dev\n\nA documentação oficial pode ser lida em https://vuejs-templates.github.io/webpack"
 };

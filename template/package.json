@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "moment": "^2.17.1",
-    "pouchdb": "^6.1.0",
     "vanilla-masker": "^1.0.9",
     "vee-validate": "^2.0.0-beta.18",
     "vue": "2.1.8",
