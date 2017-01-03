@@ -6,9 +6,16 @@
       </md-card-media>
 
       <md-card-content>
-        <md-input-container>
+        <md-input-container :class="{'md-input-invalid': errors.has('email')}">
           <label>Usuário</label>
-          <md-input type="text" v-model="user"></md-input>
+          <md-input v-model="user" data-vv-name="email" type="email" v-validate name="email" data-vv-rules="required|email"></md-input>
+          <span class="md-error">{{errors.first('email')}}</span>
+        </md-input-container>
+
+        <md-input-container :class="{'md-input-invalid': errors.has('cnpj')}">
+          <label>CNPJ (exemplo de diretiva e validadores)</label>
+          <md-input v-model="cnpj" data-vv-name="cnpj" type="text" v-validate name="cnpj" data-vv-rules="required|cnpj" v-cnpj></md-input>
+          <span class="md-error">{{errors.first('cnpj')}}</span>
         </md-input-container>
 
         <md-input-container>
@@ -30,6 +37,7 @@
     data() {
       return {
         user: '',
+        cnpj: '',
         password: '',
       };
     },

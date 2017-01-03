@@ -7,12 +7,14 @@ import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueMaterial from 'vue-material'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueRouter from 'vue-router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueResource from 'vue-resource'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import VeeValidate, { Validator } from 'vee-validate'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import { sync } from 'vuex-router-sync'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // Importação de código de configuração/criação criados.
 import VuexStore from './vuex/store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import RouterConfig from './router-config'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import { vPhone } from './common/directives/masks'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { vCNPJ } from './common/directives/masks'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { cnpjNumber } from './common/validations/social'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
@@ -23,7 +25,10 @@ Vue.use(VueRouter){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueResource){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // Exemplo de como usar uma diretiva em Vue
-Vue.directive('phone', vPhone){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.directive('cnpj', vCNPJ){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+// Exemplo de como usar um validator customizado
+Validator.extend('cnpj', cnpjNumber){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
 // Cria a store Flux usando vuex.

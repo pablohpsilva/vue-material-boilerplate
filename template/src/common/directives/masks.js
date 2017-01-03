@@ -32,6 +32,12 @@ export const vPhone = {
   },
 };
 
+export const vCNPJ = {
+  bind(el) {
+    vanillaMasker(el).maskPattern('99.999.999/9999-99');
+  },
+};
+
 export const vMoney = {
   bind(el, binding) {
     const params = binding.value || {};
