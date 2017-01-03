@@ -9,13 +9,13 @@
         <md-input-container :class="{'md-input-invalid': errors.has('email')}">
           <label>Usuário</label>
           <md-input v-model="user" data-vv-name="email" type="email" v-validate name="email" data-vv-rules="required|email"></md-input>
-          <span class="md-error">{{errors.first('email')}}</span>
+          <span class="md-error">{{emailError}}</span>
         </md-input-container>
 
         <md-input-container :class="{'md-input-invalid': errors.has('cnpj')}">
           <label>CNPJ (exemplo de diretiva e validadores)</label>
           <md-input v-model="cnpj" data-vv-name="cnpj" type="text" v-validate name="cnpj" data-vv-rules="required|cnpj" v-cnpj></md-input>
-          <span class="md-error">{{emailError}}</span>
+          <span class="md-error">{{cnpjError}}</span>
         </md-input-container>
 
         <md-input-container>
@@ -42,6 +42,10 @@
       };
     },
     computed: {
+      cnpjError() {
+        // Exemplo de computed properties
+        return (this.errors) ? this.errors.first('cnpj') : '';
+      },
       emailError() {
         // Exemplo de computed properties
         return (this.errors) ? this.errors.first('cnpj') : '';
