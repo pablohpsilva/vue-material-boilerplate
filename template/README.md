@@ -146,7 +146,7 @@ Os projetos terão o [Material Design](https://material.io/guidelines/) da Googl
 
 Projetos devem seguir o seguinte styleguide CSS/Stylus/PostCSS:
 
-#### [CSS / Stylus Styleguide](https://github.com/vilaboim/css)
+#### [CSS / Stylus Styleguide](https://github.com/pablohpsilva/css)
 
 Todo CSS deverá ser minificado e um `bundle.css` deverá ser criado contendo todo o CSS da aplicação direcionada para um target específico. CSS globais (como o `reset.min.css`) deverão ser inseridos no início do bundle, visto que toda a aplicação será afetada.
 
