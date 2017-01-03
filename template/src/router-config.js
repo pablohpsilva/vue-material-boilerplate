@@ -10,7 +10,7 @@ export const routes = [
     children: [
       {
         path: 'example',
-        name: 'example'
+        name: 'example',
         component: Hello,
       },
     ],
