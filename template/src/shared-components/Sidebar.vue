@@ -40,7 +40,7 @@
         v-for="(menuItem, index) in menuList"
         @click="toggle">
         <md-icon>{{ menuItem.icon ? menuItem.icon : 'access_time' }}</md-icon>
-        <span>{{ menuItem.text ? menuItem.text : 'Item'+index }}</span>
+        <span>{{ menuItem.text ? menuItem.text : 'vazio' }}</span>
       </md-list-item>
     </md-list>
   </md-sidenav>
