@@ -60,7 +60,7 @@ module.exports = {
       "message": "Setup e2e tests with Nightwatch?"
     }
   },
-  "skipInterpolation": "src/spa/**/*.vue",
+  "skipInterpolation": ["src/spa/**/*.vue", "src/shared-components/**/*.vue"],
   "filters": {
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
