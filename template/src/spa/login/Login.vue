@@ -15,7 +15,7 @@
         <md-input-container :class="{'md-input-invalid': errors.has('cnpj')}">
           <label>CNPJ (exemplo de diretiva e validadores)</label>
           <md-input v-model="cnpj" data-vv-name="cnpj" type="text" v-validate name="cnpj" data-vv-rules="required|cnpj" v-cnpj></md-input>
-          <span class="md-error">{{errors.first('cnpj')}}</span>
+          <span class="md-error">{{emailError}}</span>
         </md-input-container>
 
         <md-input-container>
@@ -40,6 +40,12 @@
         cnpj: '',
         password: '',
       };
+    },
+    computed: {
+      emailError() {
+        // Exemplo de computed properties
+        return (this.errors) ? this.errors.first('cnpj') : '';
+      },
     },
     methods: {
       login() {
