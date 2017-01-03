@@ -61,8 +61,6 @@ module.exports = {
     }
   },
   "filters": {
-    ".eslintrc.js": "lint",
-    ".eslintignore": "lint",
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
