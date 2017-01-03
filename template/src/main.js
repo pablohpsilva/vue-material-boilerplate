@@ -4,6 +4,7 @@
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import VueMaterial from 'vue-material'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueRouter from 'vue-router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueResource from 'vue-resource'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import { sync } from 'vuex-router-sync'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -14,6 +15,7 @@ import RouterConfig from './router-config'{{#if_eq lintConfig "airbnb"}};{{/if_e
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(VueMaterial){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueRouter){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(VueResource){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
