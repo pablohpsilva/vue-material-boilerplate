@@ -1,5 +1,5 @@
 # Frontend Seed
-Neste documento encontra-se as diretivas para a criação e desenvolvimento do Frontend dos projetos softbox. Use o Index abaixo para navegar nesta breve documentação.
+Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use o Index abaixo para navegar nesta breve documentação.
 
 ---
 
@@ -142,9 +142,9 @@ O uso do atributo `async` em tags `<script>` já [tem suporte](https://developer
 ---
 
 # <a id="lista-de-plugins"></a>Guia para CSS
-Os projetos Softbox terão o [Material Design](https://material.io/guidelines/) da Google como Guideline. Sendo assim, espera-se que espaçamentos e comportamentos dos componentes criados tenham o Material Design como base.
+Os projetos terão o [Material Design](https://material.io/guidelines/) da Google como Guideline. Sendo assim, espera-se que espaçamentos e comportamentos dos componentes criados tenham o Material Design como base.
 
-Os projetos Softbox deverão seguir o seguinte styleguide CSS/Stylus/PostCSS:
+Projetos devem seguir o seguinte styleguide CSS/Stylus/PostCSS:
 
 #### [CSS / Stylus Styleguide](https://github.com/vilaboim/css)
 
