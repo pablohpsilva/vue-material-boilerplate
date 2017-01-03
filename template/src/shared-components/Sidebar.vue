@@ -39,8 +39,8 @@
       <md-list-item class="md-primary"
         v-for="(menuItem, index) in menuList"
         @click="toggle">
-        <md-icon>{{ menuItem.icon ? menuItem.icon : 'access_time' }}</md-icon>
-        <span>{{ menuItem.text ? menuItem.text : 'vazio' }}</span>
+        <md-icon>access_time</md-icon>
+        <span>item</span>
       </md-list-item>
     </md-list>
   </md-sidenav>
