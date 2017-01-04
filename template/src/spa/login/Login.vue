@@ -8,31 +8,55 @@
       <md-card-content>
         <md-input-container :class="{'md-input-invalid': errors.has('email')}">
           <label>Usuário</label>
-          <md-input v-model="user" data-vv-name="email" type="email" v-validate name="email" data-vv-rules="required|email"></md-input>
+          <md-input type="email"
+            name="email"
+            v-model="user"
+            v-validate
+            data-vv-name="email"
+            data-vv-rules="required|email"></md-input>
           <span class="md-error">{{emailError}}</span>
         </md-input-container>
 
         <md-input-container :class="{'md-input-invalid': errors.has('cnpj')}">
           <label>CNPJ (exemplo de diretiva e validadores)</label>
-          <md-input v-model="cnpj" data-vv-name="cnpj" type="text" v-validate name="cnpj" data-vv-rules="required|cnpj" v-cnpj></md-input>
+          <md-input type="text"
+            name="cnpj"
+            v-model="cnpj"
+            v-cnpj
+            v-validate
+            data-vv-name="cnpj"
+            data-vv-rules="required|cnpj"></md-input>
           <span class="md-error">{{cnpjError}}</span>
         </md-input-container>
 
         <md-input-container>
           <label>Senha</label>
-          <md-input type="password" v-model="password"></md-input>
+          <md-input type="password"
+            v-model="password"></md-input>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Twitter username</label>
+          <typeahead></typeahead>
         </md-input-container>
       </md-card-content>
 
+      <hr>
+      <br>
+
       <md-card-actions>
         <md-button>Esqueci minha senha</md-button>
-        <md-button class="md-raised md-primary" @click.stop="login">Logar</md-button>
+        <md-button class="md-raised md-primary"
+          @click.stop="login">
+          Logar
+        </md-button>
       </md-card-actions>
     </md-card>
   </div>
 </template>
 
 <script type="text/javascript">
+  import Typeahead from '../../shared-components/Typeahead.vue';
 
   export default {
     data() {
@@ -41,6 +65,9 @@
         cnpj: '',
         password: '',
       };
+    },
+    components: {
+      Typeahead,
     },
     computed: {
       cnpjError() {
