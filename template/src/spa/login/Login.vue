@@ -24,6 +24,8 @@
         </md-input-container>
       </md-card-content>
 
+      <range-custom></range-custom>
+
       <md-card-actions>
         <md-button>Esqueci minha senha</md-button>
         <md-button class="md-raised md-primary" @click.stop="login">Logar</md-button>
@@ -33,6 +35,8 @@
 </template>
 
 <script type="text/javascript">
+  import RangeCustom from '../../shared-components/RangeCustom';
+
   export default {
     data() {
       return {
@@ -50,6 +54,9 @@
         // Exemplo de computed properties
         return (this.errors) ? this.errors.first('email') : '';
       },
+    },
+    components: {
+      RangeCustom,
     },
     methods: {
       login() {

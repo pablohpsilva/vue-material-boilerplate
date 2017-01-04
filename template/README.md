@@ -7,6 +7,7 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use
 1. [Editor de texto](#editor-de-texto)
   * [Qual usar?](#qual-usar)
   * [Lista de plugins](#lista-de-plugins)
+  * [Tema e sintaxe recomendada](#tema-e-sintaxe-recomendada)
   * [.editorconfig](#editorconfig)
 * [Guia para HTML](#guia-para-html)
   * [Exemplo](#guia-para-html-exemplo)
@@ -20,6 +21,7 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use
 * [Seed](#seed)
   * [Arquitetura](#arquitetura)
   * [Vue.js](#vuejs)
+  * [Criação de componentes](#criacao-de-componentes)
 
 ---
 
@@ -36,11 +38,17 @@ Os plugins necessários para o melhorar a experiência do desenvolvedor são ([O
 * **linter-eslint**: faz uso de ESLint para validar arquivos que contenham JavaScript;
 * **autocomplete-modules**: autocomplete para imports;
 * **turbo-javascript**: autocomplete para javascript;
+* **language-vue**: adiciona highlight de sintaxe e snippets;
+* **vue-format**: atom-beautify para arquivos .vue;
 * [OP]**pigments**: rgb, rgba e hex ficam com uma preview da cor;
 * [OP]**color-picker**: color picker para atom;
 * [OP]**linter-write-good**: autocomplete para escrever em inglês;
 * [OP]**file-icons**: coloca ícones ao lado do nome dos arquivos;
 * [OP]**markdown-preview-plus**: bom para escrever arquivos *.md* .
+
+## <a id="tema-e-sintaxe-recomendada"></a>Tema e sintaxe recomendada
+* atom-material-ui
+* atom-material-[dark|light]
 
 ## <a id="editorconfig"></a>.editorconfig
 Arquivos .editorconfig são arquivos que devem ser colocados na raíz do projeto. Esses arquivos são lidos pelo editor de texto e define como os arquivos serão criados como, por exemplo, se tab ou espaços serão usados para separar informações; Um exemplo deste aquivo é:
@@ -122,7 +130,7 @@ Um arquivo HTML exemplo pode ser visto abaixo:
 ```
 
 ## Considerações sobre o [`index.html`](#guia-para-html-exemplo) proposto
-Perceba que, se o `reset.min.css` só deverá ser importado caso o `bundle.css` já não o possua no início do arquivo. Recomenda-se colocar o `reset.min.css` acoplado ao `bundle.css` para performance.
+Perceba que o `reset.min.css` só deverá ser importado caso o `bundle.css` já não o possua no início do arquivo. Recomenda-se colocar o `reset.min.css` acoplado ao `bundle.css` para performance.
 Ambos imports de CSS possuem um atributo `media`. O browser não bloqueará o carregamento da página com este atributo.
 Espera-se que o `bundle.css` seja minificado.
 
@@ -142,7 +150,7 @@ O uso do atributo `async` em tags `<script>` já [tem suporte](https://developer
 ---
 
 # <a id="lista-de-plugins"></a>Guia para CSS
-Os projetos terão o [Material Design](https://material.io/guidelines/) da Google como Guideline. Sendo assim, espera-se que espaçamentos e comportamentos dos componentes criados tenham o Material Design como base.
+Os projetos terão o [Material Design](https://material.io/guidelines/) da Google como Guideline. Sendo assim, espera-se que espaçamentos, estilos e comportamentos dos componentes criados tenham o Material Design como base.
 
 Projetos devem seguir o seguinte styleguide CSS/Stylus/PostCSS:
 
@@ -154,7 +162,7 @@ Todo CSS deverá ser minificado e um `bundle.css` deverá ser criado contendo to
 
 # <a id="lista-de-plugins"></a>Guia para JavaScript
 ## Code style
-para que tenhamos efeito nas regras aqui mencionadas, os plugins no atom deverão estar instalados e funcionando. O guia de escrita de código pode ser lido aqui.
+Para que tenhamos efeito nas regras aqui mencionadas, os plugins no atom deverão estar instalados e funcionando. O guia de escrita de código pode ser lido [aqui](https://github.com/airbnb/javascript).
 
 Todo código criado deverá seguir o seguinte `.eslintrc.js`, onde este foi baseado no eslint da empresa [Airbnb](https://github.com/airbnb/javascript):
 
@@ -205,7 +213,7 @@ config/*.js
 # <a id="nodejs-e-gerenciador-de-pacotes"></a>Node.js e Gerenciador de pacotes
 
 ## <a id="nodejs"></a>Node.js
-Recomenda-se sempre o uso da versão LTS/recomendada pela Node.js foundation. Hoje, `30/12/2016`, a versão recomendada é a 6.9.2.
+Recomenda-se sempre o uso da versão LTS recomendada pela Node.js foundation. Hoje, `30/12/2016`, a versão recomendada é a 6.9.2.
 
 ## <a id="gerenciador-de-pacotes"></a>Gerenciador de pacotes
 Qualquer gerenciador de pacotes poderá ser usado, porém, recomenda-se o **[yarn](https://www.npmjs.com/package/yarn)** como padrão onde espera-se que este seja instalado globalmente na máquina/container de desenvolvimento.
@@ -283,3 +291,45 @@ Este seed usa as seguinte principais tecnologias:
 * [vue-resource](https://github.com/pagekit/vue-resource/releases/tag/1.0.3);
 * [vue-router](https://github.com/vuejs/vue-router/releases/tag/v2.1.1);
 * [vee-validate](https://github.com/logaretm/vee-validate/releases/tag/2.0.0-beta.18).
+
+## <a id="criacao-de-componentes"></a>Criação de componentes
+
+Usa-se um [guia de estilo para componentes vuejs](https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README.md). Um exemplo de componente:
+
+```html
+<template lang="html">
+  <div class="RangeCustom__Wrapper">
+    <input type="range" :max="max" :min="min" v-model="value"/>
+    <span>Current value is: {{ value }}</span>
+  </div>
+</template>
+
+<script type="text/babel">
+  export default {
+    name: 'RangeCustom',
+    props: {
+      max: {
+        type: Number,
+        default: 10,
+      },
+      min: {
+        type: Number,
+        default: 0,
+      },
+      defaultValue: {
+        type: Number,
+        default: 4,
+      },
+    },
+    data() {
+      return {
+        value: this.defaultValue + 0,
+      };
+    },
+  };
+</script>
+
+<style scoped>
+  .RangeCustom__Wrapper { /* nice CSS */ }
+</style>
+```
