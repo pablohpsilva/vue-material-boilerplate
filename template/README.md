@@ -4,7 +4,8 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use
 ---
 
 # Sumário
-1. [Editor de texto](#editor-de-texto)
+1. [Como iniciar este projeto](#como-iniciar-este-projeto)
+* [Editor de texto](#editor-de-texto)
   * [Qual usar?](#qual-usar)
   * [Lista de plugins](#lista-de-plugins)
   * [Tema e sintaxe recomendada](#tema-e-sintaxe-recomendada)
@@ -24,6 +25,42 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use
   * [Criação de componentes](#criacao-de-componentes)
 
 ---
+
+# <a id="como-iniciar-este-projeto"></a>Como iniciar este projeto
+
+Para iniciar este projeto, tenha o yarn instalado. Se você não o tem, leia [Como instalar o yarn](#como-instalar-o-yarn).
+
+Com o yarn instalado, execute os comandos abaixo:
+
+```bash
+$ yarn install && yarn run dev
+```
+
+Após o término de download das dependências, a aplicação subirá automaticamente, abrindo uma janela do browser.
+
+Comandos comuns:
+```bash
+# Adicionar depenências no projeto
+$ yarn add packageName[@versionNumber]
+
+# Remover depenências no projeto
+$ yarn remove packageName
+
+# Inicia servidor com hot reload em localhost:8080
+$ yarn run dev
+
+# Gera build para produção com minificação
+$ yarn run build
+
+# roda testes unitários
+$ yarn run unit
+
+# roda testes e2e
+$ yarn run e2e
+
+# roda todos os testes
+$ yarn test
+```
 
 # <a id="editor-de-texto"></a>Editor de texto
 
@@ -154,7 +191,7 @@ Os projetos terão o [Material Design](https://material.io/guidelines/) da Googl
 
 Projetos devem seguir o seguinte styleguide CSS/Stylus/PostCSS:
 
-#### [CSS / Stylus Styleguide](https://github.com/pablohpsilva/css)
+#### [CSS / Stylus Styleguide](https://github.com/vilaboim/css)
 
 Todo CSS deverá ser minificado e um `bundle.css` deverá ser criado contendo todo o CSS da aplicação direcionada para um target específico. CSS globais (como o `reset.min.css`) deverão ser inseridos no início do bundle, visto que toda a aplicação será afetada.
 

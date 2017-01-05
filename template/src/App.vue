@@ -13,8 +13,8 @@ export default {
 </script>
 
 <style>
-  @import '../node_modules/vue-material/dist/vue-material.css';
-  
+  @import './assets/css/main.css';
+
   .slide-fade-enter-active {
     transition: all .2s ease;
   }

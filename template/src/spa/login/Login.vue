@@ -2,7 +2,7 @@
   <div class="Login__Wrapper">
     <md-card class="Login__CardWrappper">
       <md-card-media class="Login__CardImage">
-        <img src="../../assets/logo.png" alt="People">
+        <img src="../../assets/img/logo.png" alt="People">
       </md-card-media>
 
       <md-card-content>
