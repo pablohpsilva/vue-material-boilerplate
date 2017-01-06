@@ -12,6 +12,12 @@
       @focus="onFocus"
       @input="update"/>
 
+    <md-button class="md-icon-button Typeahead__IconButton"
+      v-if="hasSearchButton"
+      @click="callFetch">
+      <md-icon>{{searchIcon}}</md-icon>
+    </md-button>
+
     <ul class="md-list md-theme-default Typeahead__List"
       v-show="hasItems">
       <li class="md-list-item md-menu-item md-option Typeahead__Item"
@@ -46,7 +52,18 @@
       minChars: {
         type: Number,
         default() { return 3; },
-      }
+      },
+      fetchFunction: {
+        type: Function,
+      },
+      hasSearchButton: {
+        type: Boolean,
+        default() { return false; },
+      },
+      searchIcon: {
+        type: String,
+        default() { return 'search'; },
+      },
     },
     data() {
       return {
@@ -87,6 +104,12 @@
       },
     },
 
+    watch: {
+      query(value) {
+        this.setParentValue(value);
+      },
+    },
+
     methods: {
       update() {
         if (!this.query) {
@@ -99,23 +122,16 @@
 
         this.loading = true;
 
-        this.fetch().then((response) => {
-          if (this.query) {
-            let data = response.data;
-            data = this.prepareResponseData ?
-              this.prepareResponseData(data) :
-              data;
-            this.items = this.limit ?
-              data.slice(0, this.limit) :
-              data;
-            this.current = -1;
-            this.loading = false;
+        this.callFetch();
+      },
 
-            if (this.selectFirst) {
-              this.down();
-            }
-          }
-        })
+      callFetch() {
+        if (this.fetchFunction) {
+          this.fetchFunction().then((response) => this.handleRequest(response));
+          return;
+        }
+
+        this.fetch().then((response) => this.handleRequest(response));
       },
 
       fetch() {
@@ -138,9 +154,26 @@
         return this.$http.get(src, { params });
       },
 
+      handleRequest(response) {
+        if (this.query) {
+          let data = response.data;
+          data = this.prepareResponseData ?
+            this.prepareResponseData(data) :
+            data;
+          this.items = this.limit ?
+            data.slice(0, this.limit) :
+            data;
+          this.current = -1;
+          this.loading = false;
+
+          if (this.selectFirst) {
+            this.down();
+          }
+        }
+      },
+
       reset() {
         this.items = [];
-        // this.query = '';
         this.loading = false;
       },
 
@@ -192,17 +225,20 @@
 
       onBlur() {
         setTimeout(() => {
-          this.parentContainer.isFocused = this.hasSelected;
+          this.parentContainer.isFocused = false;
           this.reset();
-        }, 200);
+        }, 1E2);
+      },
+
+      setParentValue(query) {
+        this.parentContainer.setValue(query || this.$el.query);
       },
     }
   }
 </script>
 
 <style lang="css" scoped>
-  .Typeahead__Wrapper {
-  }
+  .Typeahead__Wrapper {}
 
   .md-list.Typeahead__List {
     position: absolute;
@@ -219,5 +255,15 @@
 
   .Typeahead__Item.active .md-button.md-theme-default {
     background-color: transparent;
+  }
+
+  .Typeahead__IconButton {
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+
+  .Typeahead__IconButton .md-icon {
+    color: rgba(0,0,0,0.7);
   }
 </style>
