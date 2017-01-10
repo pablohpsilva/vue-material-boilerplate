@@ -17,7 +17,7 @@
     "vanilla-masker": "^1.0.9",
     "vee-validate": "^2.0.0-beta.18",
     "vue": "2.1.8",
-    "vue-material": "^0.6.1",
+    "vue-material": "^0.5.2",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vuex": "^2.1.1",
