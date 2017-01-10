@@ -1,2 +1,2 @@
 @import './typography.css';
-@import './vue-material.css';
+@import '../../../node_modules/vue-material/dist/vue-material.css';
