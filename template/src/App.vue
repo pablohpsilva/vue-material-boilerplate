@@ -7,9 +7,9 @@
 </template>
 
 <script>
-export default {
-  name: 'app',
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  export default {
+    name: 'app',
+  };
 </script>
 
 <style>
