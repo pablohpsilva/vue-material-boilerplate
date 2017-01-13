@@ -1,5 +1,7 @@
 <template lang="html">
-  <md-sidenav class="md-left"
+  <md-sidenav class="md-left Sidebar__Wrapper"
+    v-on:open="lockBodyScroll"
+    v-on:close="unlockBodyScroll"
     ref="leftSidenav">
     <md-toolbar class="md-account-header">
       <md-list class="md-transparent">
@@ -35,12 +37,19 @@
       </md-list>
     </md-toolbar>
 
-    <md-list v-if="menuList && menuList.length">
-      <md-list-item class="md-primary"
-        v-for="(menuItem, index) in menuList"
-        @click="toggle">
-        <md-icon>access_time</md-icon>
-        <span>item</span>
+    <md-list>
+      <md-list-item v-for="item in menuList">
+        <md-icon>{{ item.icon }}</md-icon>
+        <span>{{ item.text }}</span>
+        <md-list-expand v-if="item.sub">
+          <md-list>
+            <md-list-item class="md-inset"
+              v-for="sub in item.sub">
+              <md-icon v-if="sub.icon">{{ sub.icon }}</md-icon>
+              <span v-if="sub.text">{{ sub.text }}</span>
+            </md-list-item>
+          </md-list>
+        </md-list-expand>
       </md-list-item>
     </md-list>
   </md-sidenav>
@@ -53,8 +62,12 @@
         type: Array,
         default() {
           return [
-            { text: 'Favoritos', icon: 'start' },
-            { text: 'Apagados', icon: 'delete' },
+            { text: 'Favoritos', icon: 'favorite', url: '' },
+            { text: 'Configs', icon: 'settings', url: '', sub: [
+              { text: 'Rowing', icon: 'rowing', url: '' },
+              { text: 'Ethernet', icon: 'settings_ethernet', url: '' },
+            ] },
+            { text: 'delta', icon: 'change_history', url: '' },
           ];
         },
       },
@@ -63,6 +76,23 @@
       toggle() {
         this.$refs.leftSidenav.toggle();
       },
+      lockBodyScroll() {
+        document.body.style.overflowY = 'hidden';
+      },
+      unlockBodyScroll() {
+        document.body.style.overflowY = 'auto'
+      },
     },
   };
 </script>
+
+<style>
+  .Sidebar__Wrapper {}
+
+  .Sidebar__Wrapper.md-sidenav.md-active .md-sidenav-content,
+  .Sidebar__Wrapper.md-sidenav.md-active .md-sidenav-backdrop {
+    height: 100% !important;
+    max-height: 100vh !important;
+    position: fixed !important;
+  }
+</style>

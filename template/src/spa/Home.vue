@@ -1,9 +1,12 @@
 <template lang="html">
   <div>
-    <toolbar v-on:TOGGLE_SIDEBAR="toggleSidenav"></toolbar>
+    <toolbar class="Home__PageTeller"
+      :title="pageName"
+      v-on:TOGGLE_SIDEBAR="toggleSidenav"></toolbar>
 
     <keep-alive>
-      <transition name="slide-fade" mode="out-in">
+      <transition name="slide-fade"
+        mode="out-in">
         <router-view></router-view>
       </transition>
     </keep-alive>
@@ -17,9 +20,15 @@
   import Toolbar from '../shared-components/Toolbar';
 
   export default {
+    name: 'Home',
     components: {
       Sidebar,
       Toolbar,
+    },
+    computed: {
+      pageName() {
+        return this.$route.name;
+      },
     },
     methods: {
       toggleSidenav() {
@@ -28,3 +37,9 @@
     },
   };
 </script>
+
+<style>
+  .Home__PageTeller .md-title {
+    text-transform: capitalize;
+  }
+</style>

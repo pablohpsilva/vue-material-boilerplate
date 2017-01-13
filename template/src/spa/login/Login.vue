@@ -35,14 +35,7 @@
             v-model="password"></md-input>
         </md-input-container>
 
-        <md-input-container>
-          <label>Twitter username</label>
-          <typeahead></typeahead>
-        </md-input-container>
       </md-card-content>
-
-      <hr>
-      <br>
 
       <md-card-actions>
         <md-button>Esqueci minha senha</md-button>
@@ -56,7 +49,6 @@
 </template>
 
 <script type="text/javascript">
-  import Typeahead from '../../shared-components/Typeahead.vue';
 
   export default {
     data() {
@@ -67,7 +59,6 @@
       };
     },
     components: {
-      Typeahead,
     },
     computed: {
       cnpjError() {
@@ -81,7 +72,7 @@
     },
     methods: {
       login() {
-        this.$router.push({ path: '/products' });
+        this.$router.push({ path: '/produtos' });
       },
     },
   };
