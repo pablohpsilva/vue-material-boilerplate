@@ -1,7 +1,4 @@
-import example from './modules/example';
-
-import * as actions from './actions';
-import * as getters from './getters';
+import channel from './modules/channel';
 
 // A Vuex instance is created by combining the state, the actions,
 // and the mutations. Because the actions and mutations are just
@@ -9,10 +6,8 @@ import * as getters from './getters';
 // be easily tested or even hot-reloaded (see counter-hot example).
 
 export default {
-  actions,
-  getters,
   modules: {
-    example,
+    channel,
   },
   strict: true,
 };

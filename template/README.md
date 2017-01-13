@@ -4,7 +4,8 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use
 ---
 
 # Sumário
-1. [Como iniciar este projeto](#como-iniciar-este-projeto)
+1. [tl;dr;](#tldr)
+* [Como iniciar este projeto](#como-iniciar-este-projeto)
 * [Editor de texto](#editor-de-texto)
   * [Qual usar?](#qual-usar)
   * [Lista de plugins](#lista-de-plugins)
@@ -26,6 +27,23 @@ Neste documento encontra-se as diretivas para a criação e desenvolvimento. Use
 
 ---
 
+# <a id="tldr"></a>tl;dr;
+
+```shell
+
+$ npm install -g yarn phantomjs
+
+# Depois instale as dependencias
+$ yarn install
+
+# Depois rode a aplicação
+$ yarn run dev
+
+```
+
+--- 
+
+
 # <a id="como-iniciar-este-projeto"></a>Como iniciar este projeto
 
 Para iniciar este projeto, tenha o yarn instalado. Se você não o tem, leia [Como instalar o yarn](#como-instalar-o-yarn).
@@ -40,12 +58,6 @@ Após o término de download das dependências, a aplicação subirá automatica
 
 Comandos comuns:
 ```bash
-# Adicionar depenências no projeto
-$ yarn add packageName[@versionNumber]
-
-# Remover depenências no projeto
-$ yarn remove packageName
-
 # Inicia servidor com hot reload em localhost:8080
 $ yarn run dev
 
@@ -60,6 +72,12 @@ $ yarn run e2e
 
 # roda todos os testes
 $ yarn test
+
+# Adicionar depenências no projeto
+$ yarn add packageName[@versionNumber]
+
+# Remover depenências no projeto
+$ yarn remove packageName
 ```
 
 # <a id="editor-de-texto"></a>Editor de texto
