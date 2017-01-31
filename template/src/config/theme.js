@@ -1,9 +1,7 @@
-import Vue from 'vue';
-
 const app = {
   primary: {
     color: 'blue',
-    hue: 500,
+    hue: 600,
   },
   accent: {
     color: 'orange',
@@ -16,4 +14,6 @@ const app = {
   background: 'white',
 };
 
-Vue.material.registerTheme('default', app);
+export default (Vue) => {
+  Vue.material.registerTheme('default', app);
+};
