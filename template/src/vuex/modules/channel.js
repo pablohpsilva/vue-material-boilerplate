@@ -1,77 +1,77 @@
 import { accessObjectViaString } from '../../common/functions/helpers';
 
 const mutations = {
-  removerCanal(state, canal) {
-    if (!isNaN(Number(canal))) {
-      state.canais.splice(canal, 1);
-    }
+  removeChannel(state, channel) {
+    state.channels.splice(channel, 1);
   },
-  ordenarCanais(state, ordenacao) {
-    if (typeof ordenacao === 'object' && ordenacao) {
-      state.canais.sort((a, b) => {
-        const index = ordenacao.name;
-        const firstData = accessObjectViaString(a, index);
-        const secondData = accessObjectViaString(b, index);
-        const first = isNaN(Number(firstData)) ? firstData : Number(firstData);
-        const second = isNaN(Number(secondData)) ? secondData : Number(secondData);
+  sortChannel(state, ordenacao) {
+    state.channels.sort((a, b) => {
+      const index = ordenacao.name;
+      const firstData = accessObjectViaString(a, index);
+      const secondData = accessObjectViaString(b, index);
+      const first = isNaN(Number(firstData)) ? firstData : Number(firstData);
+      const second = isNaN(Number(secondData)) ? secondData : Number(secondData);
 
-        if (first < second) {
-          return (ordenacao.type === 'desc') ? -1 : 1;
-        }
-        if (first > second) {
-          return (ordenacao.type === 'desc') ? 1 : -1;
-        }
-        return 0;
-      });
-    }
+      if (first < second) {
+        return (ordenacao.type === 'desc') ? -1 : 1;
+      }
+      if (first > second) {
+        return (ordenacao.type === 'desc') ? 1 : -1;
+      }
+      return 0;
+    });
   },
-  popularCabecalhoCanais(state, cabecalho) {
-    if (cabecalho && cabecalho.hasOwnProperty('length') && cabecalho.length) {
-      state.cabecalhoCanais = cabecalho;
-    }
+  populateChannelHeaders(state, headers) {
+    state.channelHeaders = headers;
   },
-  popularCanais(state, canais) {
-    if (canais && canais.hasOwnProperty('length') && canais.length) {
-      state.canais = canais;
-    }
+  populateChannels(state, channels) {
+    state.channels = channels;
   },
-  adicionarCanal(state, canal) {
-    if (canal && typeof canal === 'object' && !canal.hasOwnProperty('length')) {
-      state.canais.unshift(canal);
-    }
+  addChannel(state, channel) {
+    state.channels.unshift(channel);
   },
 };
 
 const actions = {
-  removerCanal({ commit }, canal) {
-    commit('removerCanal', canal);
+  removeChannel({ commit }, channel) {
+    if (!isNaN(Number(channel))) {
+      commit('removeChannel', channel);
+    }
   },
-  ordenarCanais({ commit }, ordenacao) {
-    commit('ordenarCanais', ordenacao);
+  sortChannel({ commit }, ordenacao) {
+    if (typeof ordenacao === 'object' && ordenacao) {
+      commit('sortChannel', ordenacao);
+    }
   },
-  popularCanais({ commit }, cabecalho) {
-    commit('popularCanais', cabecalho);
+  populateChannels({ commit }, channels) {
+    if (channels && channels.hasOwnProperty('length') && channels.length) {
+      commit('populateChannels', channels);
+    }
   },
-  popularCabecalhoCanais({ commit }, cabecalho) {
-    commit('popularCabecalhoCanais', cabecalho);
+  populateChannelHeaders({ commit }, headers) {
+    if (headers && headers.hasOwnProperty('length') && headers.length) {
+      commit('populateChannelHeaders', headers);
+    }
   },
-  adicionarCanal({ commit }, canal) {
-    commit('adicionarCanal', canal);
+  addChannel({ commit }, channel) {
+    if (channel && typeof channel === 'object' && !channel.hasOwnProperty('length')) {
+      commit('addChannel', channel);
+    }
   },
 };
 
 const getters = {
-  getCanais(state) {
-    return state.canais;
+  getChannels(state) {
+    return state.channels;
   },
-  getCabecalhoCanais(state) {
-    return state.cabecalhoCanais;
+  getChannelHeaders(state) {
+    return state.channelHeaders;
   },
 };
 
 const state = {
-  cabecalhoCanais: [],
-  canais: [],
+  channelHeaders: [],
+  channels: [],
 };
 
 export default {
