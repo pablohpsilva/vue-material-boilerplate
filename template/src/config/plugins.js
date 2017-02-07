@@ -5,14 +5,10 @@ import VueResource from 'vue-resource';
 import VeeValidate from 'vee-validate';
 import Toast from '../common/functions/toast';
 
-export default (Vue, Vuex = null, VueRouter = null) => {
+export default (Vue, ...params) => {
   // Adicionando plugins ao Core do Vue
-  if (Vuex) {
-    Vue.use(Vuex);
-  }
-  if (VueRouter) {
-    Vue.use(VueRouter);
-  }
+  params.filter(el => typeof el === 'object')
+    .map(le => Vue.use(le));
   Vue.use(VueMaterial);
   Vue.use(VueRouter);
   Vue.use(VeeValidate);
