@@ -12,7 +12,7 @@ const gitActions = {
 // Vue.$resource como parâmetro e retorna um resource customizado.
 // Vue.$resource tem a seguinte assinatura:
 // function Resource(url, params, actions, options)
-export const gitResource = resource => resource(`${basePath}`, {}, gitActions);
+export default resource => resource(`${basePath}`, {}, gitActions);
 
 // Podemos extender este arquivo para módulos de recursos.
 // Suponha que temos recursos do github dentro de um diretório `common/resources/github`

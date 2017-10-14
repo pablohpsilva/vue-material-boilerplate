@@ -1,7 +1,14 @@
 <template lang="html">
   <div class="RangeCustom__Wrapper">
-    <input type="range" :max="max" :min="min" step="1" v-model="myval"/>
-    <span>Current value is: {{ myval }}</span>
+    <input
+      v-model="myval"
+      :max="max"
+      :min="min"
+      type="range"
+      step="1"/>
+    <span>
+      Current value is:
+    </span>
   </div>
 </template>
 
@@ -29,7 +36,3 @@
     },
   };
 </script>
-
-<style scoped>
-  .RangeCustom__Wrapper { /* nice CSS */ }
-</style>

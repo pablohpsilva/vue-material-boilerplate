@@ -1,24 +1,28 @@
-<template lang="html">
+<template>
   <md-toolbar>
-    <md-button class="md-icon-button"
+    <md-button
       v-show="!hideMenu"
-      @click="toggleSidenav">
+      @click="toggleSidenav"
+      class="md-icon-button">
       <md-icon>menu</md-icon>
     </md-button>
 
-    <h2 class="md-title"
+    <h2
+      class="md-title"
       style="flex: 1">
-      {{ title }}
     </h2>
 
-    <md-button class="md-icon-button" v-for="option in options">
-      <md-icon>{{ option.icon }}</md-icon>
+    <md-button
+      v-for="(option, index) in options"
+      :key="index"
+      class="md-icon-button">
+      <md-icon></md-icon>
     </md-button>
 
   </md-toolbar>
 </template>
 
-<script type="text/javascript">
+<script>
   export default {
     props: {
       hideMenu: {

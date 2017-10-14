@@ -14,7 +14,7 @@
             v-validate
             data-vv-name="email"
             data-vv-rules="required|email"></md-input>
-          <span class="md-error">{{emailError}}</span>
+          <span class="md-error"></span>
         </md-input-container>
 
         <md-input-container :class="{'md-input-invalid': errors.has('cnpj')}">
@@ -26,7 +26,7 @@
             v-validate
             data-vv-name="cnpj"
             data-vv-rules="required|cnpj"></md-input>
-          <span class="md-error">{{cnpjError}}</span>
+          <span class="md-error"></span>
         </md-input-container>
 
         <md-input-container>

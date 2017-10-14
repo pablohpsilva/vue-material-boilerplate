@@ -55,3 +55,5 @@ export const cnpjNumber = {
     /* eslint-enable */
   },
 };
+
+export default cnpjNumber;

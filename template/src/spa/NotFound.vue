@@ -1,6 +1,10 @@
 <template lang="html">
-  <div class="NotFound__Wrapper">
-    <span class="md-display-2">Ops... Essa página não existe.</span>
+  <div
+    class="NotFound__Wrapper">
+    <span
+      class="md-display-2">
+      Ops... Essa página não existe.
+    </span>
   </div>
 </template>
 
