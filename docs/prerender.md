@@ -14,7 +14,7 @@ npm install --save-dev prerender-spa-plugin
 
 ```js
 // This line should go at the top of the file where other 'imports' live in
-var PrerenderSpaPlugin = require('prerender-spa-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
 ```
 
 3. Configure it in the `plugins` array (also in **build/webpack.prod.conf.js**):
@@ -29,3 +29,11 @@ new PrerenderSpaPlugin(
 ```
 
 If you also wanted to prerender `/about` and `/contact`, then that array would be `[ '/', '/about', '/contact' ]`.
+
+4. Enable history mode for `vue-router`:
+```js
+const router = new VueRouter({
+  mode: 'history',
+  routes: [...]
+})
+```

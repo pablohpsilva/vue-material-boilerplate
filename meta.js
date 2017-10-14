@@ -12,42 +12,57 @@ module.exports = {
     "name": {
       "type": "string",
       "required": true,
-      "message": "Nome do projeto"
+      "message": "Project name"
     },
     "description": {
       "type": "string",
       "required": false,
-      "message": "Descrição",
-      "default": "Um projeto em Vue.js"
+      "message": "Project description",
+      "default": "A Vue.js project"
     },
     "author": {
       "type": "string",
-      "message": "Autor(es)"
+      "message": "Author"
     },
     "build": {
       "type": "list",
       "message": "Vue build",
       "choices": [
         {
-          "name": "Runtime + Compiler: esta é a recomendada",
+          "name": "Runtime + Compiler: recommended for most users",
           "value": "standalone",
           "short": "standalone"
         },
         {
-          "name": "Runtime-only: 6KB mais leve min+gzip, porém templates (ou qualquer Vue-specific HTML) é permitido SOMENTE em arquivos .vue - funções de renderização são requiridas em outro lugar",
+          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
           "value": "runtime",
           "short": "runtime"
         }
       ]
     },
+    "lint": {
+      "type": "confirm",
+      "message": "Use ESLint to lint your code?"
+    },
     "lintConfig": {
+      "when": "lint",
       "type": "list",
       "message": "Pick an ESLint preset",
       "choices": [
         {
-          "name": "AirBNB (https://github.com/airbnb/javascript) + Softbox lint",
+          "name": "Standard (https://github.com/feross/standard)",
+          "value": "standard",
+          "short": "Standard"
+        },
+        {
+          "name": "Airbnb (https://github.com/airbnb/javascript)",
           "value": "airbnb",
-          "short": "AirBNB"
+          "short": "Airbnb"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
         }
       ]
     },
@@ -60,11 +75,14 @@ module.exports = {
       "message": "Setup e2e tests with Nightwatch?"
     }
   },
-  "skipInterpolation": "src/**/*.vue",
   "filters": {
+    ".eslintrc.js": "lint",
+    ".eslintignore": "lint",
     "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
-    "test/e2e/**/*": "e2e"
+    "build/webpack.test.conf.js": "unit",
+    "test/e2e/**/*": "e2e",
+    "src/router/**/*": "router"
   },
-  "completeMessage": "Para rodar o projeto:\n\n  cd {{destDirName}}\n  yarn install\n  yarn run dev\n\nA documentação oficial pode ser lida em https://vuejs-templates.github.io/webpack"
+  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };
