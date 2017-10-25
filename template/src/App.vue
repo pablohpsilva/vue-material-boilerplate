@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'app',
+    name: 'app'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   };
 </script>
 

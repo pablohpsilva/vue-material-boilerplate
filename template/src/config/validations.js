@@ -1,24 +1,24 @@
-import { cnpjNumber } from '../common/validations/social';
+import { cnpjNumber } from '../common/validations/social'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const messages = {
   required: () => 'Este campo é obrigatório',
-  email: () => 'Este email é inválido',
-};
+  email: () => 'Este email é inválido'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const dictionary = {
   en: {
-    messages,
+    messages{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
   pt: {
-    messages,
+    messages{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
   ptbr: {
-    messages,
+    messages{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default (Validator) => {
   // Exemplo de como usar um validator customizado
-  Validator.extend('cnpj', cnpjNumber);
-  Validator.updateDictionary(dictionary);
-};
+  Validator.extend('cnpj', cnpjNumber){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  Validator.updateDictionary(dictionary){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

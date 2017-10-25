@@ -21,19 +21,19 @@
   export default {
     name: 'Home',
     components: {
-      Toolbar,
+      Toolbar{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     computed: {
       pageName() {
-        return this.$route.name;
+        return this.$route.name{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       },
     },
     methods: {
       toggleSidenav() {
-        this.$refs.sidenav.toggle();
-      },
-    },
-  };
+        this.$refs.sidenav.toggle(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <style>

@@ -1,46 +1,46 @@
-import vanillaMasker from 'vanilla-masker';
+import vanillaMasker from 'vanilla-masker'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
 export const vHourFull = {
   bind(el) {
-    vanillaMasker(el).maskPattern('99:99:99');
+    vanillaMasker(el).maskPattern('99:99:99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vHour = {
   bind(el) {
-    vanillaMasker(el).maskPattern('99:99');
+    vanillaMasker(el).maskPattern('99:99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vDateFull = {
   bind(el) {
-    vanillaMasker(el).maskPattern('99/99/9999');
+    vanillaMasker(el).maskPattern('99/99/9999'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vDate = {
   bind(el) {
-    vanillaMasker(el).maskPattern('99/99/99');
+    vanillaMasker(el).maskPattern('99/99/99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vPhone = {
   bind(el, binding) {
-    const pattern = (binding.value) ? binding.value.mask : '(99) 99999-9999';
-    vanillaMasker(el).maskPattern(pattern);
+    const pattern = (binding.value) ? binding.value.mask : '(99) 99999-9999'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    vanillaMasker(el).maskPattern(pattern){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vCNPJ = {
   bind(el) {
-    vanillaMasker(el).maskPattern('99.999.999/9999-99');
+    vanillaMasker(el).maskPattern('99.999.999/9999-99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vMoney = {
   bind(el, binding) {
-    const params = binding.value || {};
+    const params = binding.value || {}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
     vanillaMasker(el).maskMoney({
       // Decimal precision -> "90"
@@ -60,7 +60,7 @@ export const vMoney = {
       // Force type only number instead decimal,
       // masking decimals with ",00"
       // Zero cents -> "R$ 1.234.567.890,00"
-      zeroCents: !!params.zeroCents,
-    });
+      zeroCents: !!params.zeroCents{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

@@ -3,7 +3,7 @@
     class="NotFound__Wrapper">
     <span
       class="md-display-2">
-      Ops... Essa página não existe.
+      Ops... 404.
     </span>
   </div>
 </template>

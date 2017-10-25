@@ -1,16 +1,16 @@
 // retirado de http://www.geradorcnpj.com/javascript-validar-cnpj.htm
 export const cnpjNumber = {
   getMessage() { // will be added to default English messages.
-    return 'CNPJ inválido';
+    return 'CNPJ inválido'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
   validate(val) {
     /* eslint-disable */
-    let cnpj = val.replace(/[^\d]+/g,'');
+    let cnpj = val.replace(/[^\d]+/g,''){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-    if(cnpj == '') return false;
+    if(cnpj == '') return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
     if (cnpj.length != 14)
-        return false;
+        return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
     // Elimina CNPJs invalidos conhecidos
     if (cnpj == "00000000000000" ||
@@ -23,35 +23,35 @@ export const cnpjNumber = {
         cnpj == "77777777777777" ||
         cnpj == "88888888888888" ||
         cnpj == "99999999999999")
-        return false;
+        return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
     // Valida DVs
     let tamanho = cnpj.length - 2,
       numeros = cnpj.substring(0,tamanho),
       digitos = cnpj.substring(tamanho),
       soma = 0,
-      pos = tamanho - 7;
+      pos = tamanho - 7{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
     for (let i = tamanho; i >= 1; i--) {
       soma += numeros.charAt(tamanho - i) * pos--;
-      if (pos < 2) pos = 9;
+      if (pos < 2) pos = 9{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }
 
-    let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(0)) return false;
+    let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    if (resultado != digitos.charAt(0)) return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-    tamanho = tamanho + 1;
-    numeros = cnpj.substring(0,tamanho);
-    soma = 0;
-    pos = tamanho - 7;
+    tamanho = tamanho + 1{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    numeros = cnpj.substring(0,tamanho){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    soma = 0{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    pos = tamanho - 7{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     for (let i = tamanho; i >= 1; i--) {
       soma += numeros.charAt(tamanho - i) * pos--;
-      if (pos < 2) pos = 9;
+      if (pos < 2) pos = 9{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }
-    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(1)) return false;
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    if (resultado != digitos.charAt(1)) return false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-    return true;
+    return true{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     /* eslint-enable */
   },
 };

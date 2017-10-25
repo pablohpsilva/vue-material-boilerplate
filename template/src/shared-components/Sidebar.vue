@@ -83,7 +83,7 @@
             {
               text: 'Favoritos',
               icon: 'favorite',
-              url: ''
+              url: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
             },
             {
               text: 'Configs',
@@ -93,32 +93,36 @@
                 {
                   text: 'Rowing',
                   icon: 'rowing',
-                  url: ''
+                  url: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
                 },
                 {
                   text: 'Ethernet',
                   icon: 'settings_ethernet',
-                  url: ''
+                  url: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
                 },
               ]
             },
-            { text: 'delta', icon: 'change_history', url: '' },
-          ];
-        },
-      },
+            {
+              text: 'delta',
+              icon: 'change_history',
+              url: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+            }
+          ]{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     methods: {
       toggle() {
-        this.$refs.leftSidenav.toggle();
+        this.$refs.leftSidenav.toggle(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       },
       lockBodyScroll() {
-        document.body.style.overflowY = 'hidden';
+        document.body.style.overflowY = 'hidden'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       },
       unlockBodyScroll() {
-        document.body.style.overflowY = 'auto'
-      },
-    },
-  };
+        document.body.style.overflowY = 'auto'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <style>

@@ -14,25 +14,25 @@
 
 <script type="text/babel">
   export default {
-    name: 'RangeCustom',
+    name: 'RangeCustom'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     props: {
       max: {
         type: Number,
-        default: 10,
+        default: 10{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       },
       min: {
         type: Number,
-        default: 0,
+        default: 0{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       },
       defaultValue: {
         type: Number,
-        default: 4,
-      },
+        default: 4{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     data() {
       return {
-        myval: this.defaultValue + 0,
-      };
-    },
-  };
+        myval: this.defaultValue + 0{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>

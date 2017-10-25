@@ -1,6 +1,6 @@
-import Home from '../spa/Home';
-import Login from '../spa/login/Login';
-import NotFound from '../spa/NotFound';
+import Home from '../spa/Home'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Login from '../spa/login/Login'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import NotFound from '../spa/NotFound'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 /* eslint-disable import/prefer-default-export */
 export const routes = [
   {
@@ -14,14 +14,14 @@ export const routes = [
   },
   {
     path: '*',
-    component: NotFound,
+    component: NotFound{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
-];
+]{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const VueRouterObject = {
   routes,
   mode: 'history',
   saveScrollPosition: true,
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-export default VueRouter => new VueRouter(VueRouterObject);
+export default VueRouter => new VueRouter(VueRouterObject){{#if_eq lintConfig "airbnb"}};{{/if_eq}}

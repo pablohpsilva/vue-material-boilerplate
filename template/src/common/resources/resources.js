@@ -5,14 +5,14 @@ const basePath = 'https://api.github.com/repositories/11730342/commits?per_page=
 // No exemplo abaixo, criamos uma ação 'list', que é um GET
 // na url que aponta para a raíz da API
 const gitActions = {
-  list: { method: 'GET', url: `${basePath}` },
+  list: { method: 'GET', url: `${basePath}` }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 };
 
 // Exportamos então o recurso, que não passa de uma função que recebe um
 // Vue.$resource como parâmetro e retorna um resource customizado.
 // Vue.$resource tem a seguinte assinatura:
 // function Resource(url, params, actions, options)
-export default resource => resource(`${basePath}`, {}, gitActions);
+export default resource => resource(`${basePath}`, {}, gitActions){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // Podemos extender este arquivo para módulos de recursos.
 // Suponha que temos recursos do github dentro de um diretório `common/resources/github`

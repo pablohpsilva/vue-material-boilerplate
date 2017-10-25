@@ -49,33 +49,32 @@
 </template>
 
 <script type="text/javascript">
-
   export default {
     data() {
       return {
         user: '',
         cnpj: '',
-        password: '',
-      };
+        password: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     },
     components: {
     },
     computed: {
       cnpjError() {
         // Exemplo de computed properties
-        return (this.errors) ? this.errors.first('cnpj') : '';
+        return (this.errors) ? this.errors.first('cnpj') : ''{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       },
       emailError() {
         // Exemplo de computed properties
-        return (this.errors) ? this.errors.first('email') : '';
-      },
+        return (this.errors) ? this.errors.first('email') : ''{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     methods: {
       login() {
-        this.$router.push({ path: '/produtos' });
-      },
-    },
-  };
+        this.$router.push({ path: '/produtos' }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <style lang="scss" scoped>

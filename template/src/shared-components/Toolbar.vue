@@ -27,33 +27,33 @@
     props: {
       hideMenu: {
         type: Boolean,
-        default() { return false; },
+        default() { return false; }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       },
       title: {
         type: String,
-        default() { return ''; },
+        default() { return ''; }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       },
       options: {
         type: Array,
-        default() { return []; },
-      },
+        default() { return []; }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     data() {
       return {
         progress: 0,
         progressInterval: null,
         done: false,
-        transition: true,
+        transition: true{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       };
     },
     components: {
     },
     methods: {
       toggleSidenav() {
-        this.$emit('TOGGLE_SIDEBAR');
-      },
-    },
-  };
+        this.$emit('TOGGLE_SIDEBAR'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <style media="screen">

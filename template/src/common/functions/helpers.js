@@ -1,6 +1,5 @@
 export const extractRequestData = (request) => {
-  if (request.data.hasOwnProperty('data')) {
-    return request.data.data;
-  }
-  return request.data;
+  return (request.data.hasOwnProperty('data'))
+    ? request.data.data
+    : request.data{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 };
