@@ -27,29 +27,31 @@
     props: {
       hideMenu: {
         type: Boolean,
-        default() { return false; }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        default: false{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       },
       title: {
         type: String,
-        default() { return ''; }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        default: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       },
       options: {
         type: Array,
-        default() { return []; }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        default{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
+          return []{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
-    data() {
+    data{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
       return {
         progress: 0,
         progressInterval: null,
         done: false,
         transition: true{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-      };
+      }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     },
     components: {
     },
     methods: {
-      toggleSidenav() {
+      toggleSidenav{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
         this.$emit('TOGGLE_SIDEBAR'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}

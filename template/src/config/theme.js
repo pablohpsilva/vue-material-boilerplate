@@ -12,8 +12,8 @@ const app = {
     hue: 400{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
   background: 'white'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default (Vue) => {
   Vue.material.registerTheme('default', app){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

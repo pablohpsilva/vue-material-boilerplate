@@ -11,4 +11,4 @@ export default (Vue, ...params) => {
   Vue.use(VueRouter){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   Vue.use(VeeValidate){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   Vue.use(VueResource){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-};
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

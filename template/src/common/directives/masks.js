@@ -4,42 +4,42 @@ import vanillaMasker from 'vanilla-masker'{{#if_eq lintConfig "airbnb"}};{{/if_e
 export const vHourFull = {
   bind(el) {
     vanillaMasker(el).maskPattern('99:99:99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vHour = {
-  bind(el) {
+  bind{{#if_eq lintConfig "standard"}} {{/if_eq}}(el) {
     vanillaMasker(el).maskPattern('99:99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vDateFull = {
-  bind(el) {
+  bind{{#if_eq lintConfig "standard"}} {{/if_eq}}(el) {
     vanillaMasker(el).maskPattern('99/99/9999'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vDate = {
-  bind(el) {
+  bind{{#if_eq lintConfig "standard"}} {{/if_eq}}(el) {
     vanillaMasker(el).maskPattern('99/99/99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vPhone = {
-  bind(el, binding) {
+  bind{{#if_eq lintConfig "standard"}} {{/if_eq}}(el, binding) {
     const pattern = (binding.value) ? binding.value.mask : '(99) 99999-9999'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     vanillaMasker(el).maskPattern(pattern){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vCNPJ = {
-  bind(el) {
+  bind{{#if_eq lintConfig "standard"}} {{/if_eq}}(el) {
     vanillaMasker(el).maskPattern('99.999.999/9999-99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export const vMoney = {
-  bind(el, binding) {
+  bind{{#if_eq lintConfig "standard"}} {{/if_eq}}(el, binding) {
     const params = binding.value || {}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
     vanillaMasker(el).maskMoney({
@@ -62,5 +62,5 @@ export const vMoney = {
       // Zero cents -> "R$ 1.234.567.890,00"
       zeroCents: !!params.zeroCents{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  },
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

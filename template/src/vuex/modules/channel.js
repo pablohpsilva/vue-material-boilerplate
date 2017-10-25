@@ -1,19 +1,19 @@
 const mutations = {
-  removeChannel(state, channel) {
+  removeChannel{{#if_eq lintConfig "standard"}} {{/if_eq}}(state, channel) {
     state.channels.splice(channel, 1){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  addChannel(state, channel) {
+  addChannel{{#if_eq lintConfig "standard"}} {{/if_eq}}(state, channel) {
     state.channels.unshift(channel){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const actions = {
-  removeChannel({ commit }, channel) {
+  removeChannel{{#if_eq lintConfig "standard"}} {{/if_eq}}({ commit }, channel) {
     if (!isNaN(Number(channel))) {
       commit('removeChannel', channel){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }
   },
-  addChannel({ commit }, channel) {
+  addChannel{{#if_eq lintConfig "standard"}} {{/if_eq}}({ commit }, channel) {
     if (channel && typeof channel === 'object' && !channel.hasOwnProperty('length')) {
       commit('addChannel', channel){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }
@@ -21,7 +21,7 @@ const actions = {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const getters = {
-  getChannels(state) {
+  getChannels{{#if_eq lintConfig "standard"}} {{/if_eq}}(state) {
     return state.channels{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

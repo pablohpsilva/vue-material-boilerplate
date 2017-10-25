@@ -1,9 +1,9 @@
 // retirado de http://www.geradorcnpj.com/javascript-validar-cnpj.htm
 export const cnpjNumber = {
-  getMessage() { // will be added to default English messages.
+  getMessage{{#if_eq lintConfig "standard"}} {{/if_eq}}() { // will be added to default English messages.
     return 'CNPJ inválido'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  validate(val) {
+  validate{{#if_eq lintConfig "standard"}} {{/if_eq}}(val) {
     /* eslint-disable */
     let cnpj = val.replace(/[^\d]+/g,''){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
@@ -53,7 +53,7 @@ export const cnpjNumber = {
 
     return true{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     /* eslint-enable */
-  },
-};
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-export default cnpjNumber;
+export default cnpjNumber{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

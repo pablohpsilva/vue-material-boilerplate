@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import Toolbar from '../shared-components/Toolbar';
+  import Toolbar from '../shared-components/Toolbar'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
   export default {
     name: 'Home',
@@ -24,12 +24,12 @@
       Toolbar{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     computed: {
-      pageName() {
+      pageName{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
         return this.$route.name{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-      },
+      }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     methods: {
-      toggleSidenav() {
+      toggleSidenav{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
         this.$refs.sidenav.toggle(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}

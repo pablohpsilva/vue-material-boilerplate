@@ -50,7 +50,7 @@
 
 <script type="text/javascript">
   export default {
-    data() {
+    data{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
       return {
         user: '',
         cnpj: '',
@@ -60,17 +60,17 @@
     components: {
     },
     computed: {
-      cnpjError() {
+      cnpjError{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
         // Exemplo de computed properties
         return (this.errors) ? this.errors.first('cnpj') : ''{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       },
-      emailError() {
+      emailError{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
         // Exemplo de computed properties
         return (this.errors) ? this.errors.first('email') : ''{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     },
     methods: {
-      login() {
+      login{{#if_eq lintConfig "standard"}} {{/if_eq}}() {
         this.$router.push({ path: '/produtos' }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
