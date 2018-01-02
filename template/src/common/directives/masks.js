@@ -2,7 +2,7 @@ import vanillaMasker from 'vanilla-masker'{{#if_eq lintConfig "airbnb"}};{{/if_e
 
 /* eslint-disable no-new */
 export const vHourFull = {
-  bind(el) {
+  bind (el) {
     vanillaMasker(el).maskPattern('99:99:99'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
