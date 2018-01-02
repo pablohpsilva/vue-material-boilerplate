@@ -20,5 +20,5 @@ const dictionary = {
 export default (Validator) => {
   // Exemplo de como usar um validator customizado
   Validator.extend('cnpj', cnpjNumber){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  Validator.updateDictionary(dictionary){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  Validator.localize(dictionary){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
